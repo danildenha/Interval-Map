@@ -15,12 +15,6 @@ public:
 	// constructor associates whole range of K with val
 	interval_map(V const& val) : m_valBegin(val) {}
 
-	// Assign value val to interval [keyBegin, keyEnd).
-	// Overwrite previous values in this interval.
-	// Conforming to the C++ Standard Library conventions, the interval
-	// includes keyBegin, but excludes keyEnd.
-	// If !( keyBegin < keyEnd ), this designates an empty interval,
-	// and assign must do nothing.
 	void assign( K const& keyBegin, K const& keyEnd, V const& val ) {
 		//1 Check if interval is not empty
 		if (!(keyBegin<keyEnd))
@@ -68,10 +62,6 @@ public:
 	}
 };
 
-// Many solutions we receive are incorrect. Consider using a randomized test
-// to discover the cases that your implementation does not handle correctly.
-// We recommend to implement a test function that tests the functionality of
-// the interval_map, for example using a map of int intervals to char.
 #include <iostream>
 
 void IntervalMapTest() {
